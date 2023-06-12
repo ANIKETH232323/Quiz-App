@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -73,15 +72,12 @@ public class AddQuestionActivity extends AppCompatActivity {
             setData();
         }
 
-        uploadBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (question.getText().toString().isEmpty()) {
-                    question.setError("Required");
-                    return;
-                }
-                upload();
+        uploadBtn.setOnClickListener(view -> {
+            if (question.getText().toString().isEmpty()) {
+                question.setError("Required");
+                return;
             }
+            upload();
         });
     }
 
