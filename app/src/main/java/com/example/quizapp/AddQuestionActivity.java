@@ -162,7 +162,7 @@ public class AddQuestionActivity extends AppCompatActivity {
                                 , Objects.requireNonNull(map.get("optionD")).toString()
                                 , Objects.requireNonNull(map.get("correctAns")).toString()
                                 , id
-                                , map.get("setId").toString());
+                                , Objects.requireNonNull(map.get("setId")).toString());
 
                         if (position != -1) {
                             QuestionsActivity.list.set(position, questionModel);
