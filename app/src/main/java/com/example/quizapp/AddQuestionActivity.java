@@ -156,7 +156,7 @@ public class AddQuestionActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
 
                         QuestionModel questionModel = new QuestionModel(Objects.requireNonNull(map.get("question")).toString()
-                                , map.get("optionA").toString()
+                                , Objects.requireNonNull(map.get("optionA")).toString()
                                 , map.get("optionB").toString()
                                 , map.get("optionC").toString()
                                 , map.get("optionD").toString()
