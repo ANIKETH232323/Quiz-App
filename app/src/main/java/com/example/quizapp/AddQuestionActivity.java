@@ -1,8 +1,5 @@
 package com.example.quizapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -14,6 +11,10 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -27,7 +28,6 @@ public class AddQuestionActivity extends AppCompatActivity {
     private EditText question;
     private RadioGroup options;
     private LinearLayout answers;
-    private Button uploadBtn;
     private String categoryName;
     private int position;
     private Dialog loadingDialog;
@@ -59,7 +59,7 @@ public class AddQuestionActivity extends AppCompatActivity {
         question = findViewById(R.id.question);
         options = findViewById(R.id.options);
         answers = findViewById(R.id.answers);
-        uploadBtn = findViewById(R.id.button);
+        Button uploadBtn = findViewById(R.id.button);
 
         if (setId == null) {
             finish();
