@@ -155,7 +155,7 @@ public class AddQuestionActivity extends AppCompatActivity {
                 .setValue(map).addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
 
-                        QuestionModel questionModel = new QuestionModel(map.get("question").toString()
+                        QuestionModel questionModel = new QuestionModel(Objects.requireNonNull(map.get("question")).toString()
                                 , map.get("optionA").toString()
                                 , map.get("optionB").toString()
                                 , map.get("optionC").toString()
