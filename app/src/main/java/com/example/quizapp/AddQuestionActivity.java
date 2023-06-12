@@ -1,5 +1,6 @@
 package com.example.quizapp;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -35,6 +36,7 @@ public class AddQuestionActivity extends AppCompatActivity {
     private QuestionModel questionModel;
     private String id, setId;
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +55,7 @@ public class AddQuestionActivity extends AppCompatActivity {
         loadingDialog.setCancelable(false);
         loadingText = loadingDialog.findViewById(R.id.loadingText);
 
-        String categoryName = getIntent().getStringExtra("categoryName");
+        getIntent().getStringExtra("categoryName");
         setId = getIntent().getStringExtra("setId");
         position = getIntent().getIntExtra("position", -1);
         question = findViewById(R.id.question);
