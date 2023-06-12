@@ -160,7 +160,7 @@ public class AddQuestionActivity extends AppCompatActivity {
                                 , Objects.requireNonNull(map.get("optionB")).toString()
                                 , Objects.requireNonNull(map.get("optionC")).toString()
                                 , Objects.requireNonNull(map.get("optionD")).toString()
-                                , map.get("correctAns").toString()
+                                , Objects.requireNonNull(map.get("correctAns")).toString()
                                 , id
                                 , map.get("setId").toString());
 
