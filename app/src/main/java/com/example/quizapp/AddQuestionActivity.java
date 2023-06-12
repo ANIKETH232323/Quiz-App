@@ -28,7 +28,6 @@ public class AddQuestionActivity extends AppCompatActivity {
     private EditText question;
     private RadioGroup options;
     private LinearLayout answers;
-    private String categoryName;
     private int position;
     private Dialog loadingDialog;
     private TextView loadingText;
@@ -53,7 +52,7 @@ public class AddQuestionActivity extends AppCompatActivity {
         loadingDialog.setCancelable(false);
         loadingText = loadingDialog.findViewById(R.id.loadingText);
 
-        categoryName = getIntent().getStringExtra("categoryName");
+        String categoryName = getIntent().getStringExtra("categoryName");
         setId = getIntent().getStringExtra("setId");
         position = getIntent().getIntExtra("position", -1);
         question = findViewById(R.id.question);
