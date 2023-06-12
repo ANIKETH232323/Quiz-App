@@ -109,6 +109,7 @@ public class AddQuestionActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private void upload() {
 
         int correct = -1;
