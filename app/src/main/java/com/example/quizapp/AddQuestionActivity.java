@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
+import java.util.Objects;
 import java.util.UUID;
 
 public class AddQuestionActivity extends AppCompatActivity {
@@ -42,7 +43,7 @@ public class AddQuestionActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setTitle("Add Question");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Add Question");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         loadingDialog = new Dialog(this);
