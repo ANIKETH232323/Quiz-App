@@ -16,8 +16,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
@@ -154,33 +152,30 @@ public class AddQuestionActivity extends AppCompatActivity {
 
         FirebaseDatabase.getInstance().getReference()
                 .child("SETS").child(setId).child(id)
-                .setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
+                .setValue(map).addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
 
-                    QuestionModel questionModel = new QuestionModel(map.get("question").toString()
-                            , map.get("optionA").toString()
-                            , map.get("optionB").toString()
-                            , map.get("optionC").toString()
-                            , map.get("optionD").toString()
-                            , map.get("correctAns").toString()
-                            , id
-                            , map.get("setId").toString());
+                        QuestionModel questionModel = new QuestionModel(map.get("question").toString()
+                                , map.get("optionA").toString()
+                                , map.get("optionB").toString()
+                                , map.get("optionC").toString()
+                                , map.get("optionD").toString()
+                                , map.get("correctAns").toString()
+                                , id
+                                , map.get("setId").toString());
 
-                    if (position != -1) {
-                        QuestionsActivity.list.set(position, questionModel);
+                        if (position != -1) {
+                            QuestionsActivity.list.set(position, questionModel);
+                        } else {
+                            QuestionsActivity.list.add(questionModel);
+                        }
+
+                        finish();
                     } else {
-                        QuestionsActivity.list.add(questionModel);
+                        Toast.makeText(AddQuestionActivity.this, "Error AQ181: Something went wrong", Toast.LENGTH_SHORT).show();
                     }
-
-                    finish();
-                } else {
-                    Toast.makeText(AddQuestionActivity.this, "Error AQ181: Something went wrong", Toast.LENGTH_SHORT).show();
-                }
-                loadingDialog.dismiss();
-                loadingText.setText("Loading...");
-            }
-        });
+                    loadingDialog.dismiss();
+                    loadingText.setText("Loading...");
+                });
     }
 }
